@@ -1,0 +1,26 @@
+<div class="container-fluid login-container">
+  <div class="login-box">
+    <h2 class="text-center">Login</h2>
+    <form #form="ngForm">
+      <div class="form-group">
+        <label>CPF</label>
+        <input type="text" #itCpf="ngModel" required [(ngModel)]="loginObj.cpf" class="form-control" name="cpf" placeholder="Enter CPF" mask="000.000.000-00">
+        <div class="text-danger">
+          @if (itCpf.errors?.['required'] && itCpf.touched && itCpf.dirty) {
+            <span>Campo obrigatório</span>
+          }
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" #itPass="ngModel" required [(ngModel)]="loginObj.password" class="form-control" name="password" placeholder="Password">
+        <div class="text-danger">
+          @if (itPass.errors?.['required'] && itPass.touched && itPass.dirty) {
+            <span>Campo obrigatório</span>
+          }
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" [disabled]="form.invalid" type="button" (click)="acaoEntrar()">Entrar</button>
+    </form>
+  </div>
+</div>
