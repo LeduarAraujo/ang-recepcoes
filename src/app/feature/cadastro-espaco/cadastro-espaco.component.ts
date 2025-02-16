@@ -40,8 +40,11 @@ export class CadastroEspacoComponent {
     private atomicoJwtService: AtomicoJwtService,
     private viacepService: ViacepService
   ) {
-    this.listarEspacos();
    }
+
+  ngOnInit() {
+    this.listarEspacos();
+  }
 
    listarEspacos() {
     this.atomicoJwtService.listarEspacos(this.token_jwt, this.idFuncionario)
@@ -73,8 +76,9 @@ export class CadastroEspacoComponent {
         this.atomicoJwtService.incluirEspaco(this.token_jwt, this.idFuncionario, this.espaco, this.logoEspaco)
         .subscribe(() => {
           alert('Espaço cadastrado com sucesso!');
-          this.listarEspacos();
           this.limparCamposModal();
+          this.listarEspacos();
+          document.getElementsByName('fechar')[0].click();
         }, err => alert(err.error.message));
       } else {
         alert('Imagem não encontrada.');
@@ -101,18 +105,22 @@ export class CadastroEspacoComponent {
   }
 
   handleFileInput(event: any) {
-    const file: File = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64String = reader.result as string;
-      const byteCharacters = atob(base64String.split(',')[1]);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      this.logoEspaco = new Blob([byteArray], { type: file.type });
-    };
-    reader.readAsDataURL(file);
+    if (event.target.files[0] != null && event.target.
+      files[0].name != null && event.target.files[0].name != '') {
+
+      const file: File = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        const byteCharacters = atob(base64String.split(',')[1]);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        this.logoEspaco = new Blob([byteArray], { type: file.type });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 }
