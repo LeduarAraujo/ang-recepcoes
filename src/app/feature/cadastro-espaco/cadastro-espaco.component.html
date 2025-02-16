@@ -50,14 +50,14 @@
 
           <div class="col-md-4">
             <label class="form-label">Logo do Espaço</label>
-            <input type="file" class="form-control" name="logo" [(ngModel)]="logoEspaco" (change)="handleFileInput($event)">
+            <input type="file" class="form-control" name="logo" (change)="handleFileInput($event)">
           </div>
 
           <div class="col-md-4">
             <label class="form-label">Instagram</label>
             <div class="input-group has-validation">
               <span class="input-group-text">&#64;</span>
-              <input type="text" class="form-control" name="instagram" placeholder="Instagram" required name="instagram" [(ngModel)]="espaco.instagram">
+              <input type="text" class="form-control" placeholder="Instagram" required name="instagram" [(ngModel)]="espaco.instagram">
             </div>
           </div>
 
@@ -79,7 +79,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary" name="fechar" data-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-primary" (click)="incluirEspaco()">Salvar</button>
       </div>
     </div>
