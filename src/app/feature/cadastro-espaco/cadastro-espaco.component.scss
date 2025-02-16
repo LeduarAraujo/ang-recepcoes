@@ -1,0 +1,33 @@
+.logo-espaco {
+  width: 3rem;
+  height: 3rem;
+}
+
+.modal-dialog{
+  --bs-max-width: 800px;
+  --bs-modal-width: 800px
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 800px;
+      margin: 1.75rem auto;
+  }
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-dialog {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-dialog {
+    max-width: 1000px;
+  }
+}

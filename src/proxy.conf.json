@@ -1,0 +1,11 @@
+{
+  "/v1/*": {
+      "target": "https://atom-recepcoes-43268d48140c.herokuapp.com",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+          "^/v1": ""
+      }
+  }
+}
