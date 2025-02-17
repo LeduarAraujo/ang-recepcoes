@@ -1,7 +1,7 @@
 import { ViaCEP } from './../../core/models/viacep';
 import { ListarespacoResponse } from './../../core/models/listarespaco.response';
 import { AtomicoJwtService } from './../../core/services/atomico-jwt.service';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Espaco } from './../../core/models/espaco';
 import { NgFor } from '@angular/common';
 import { ViacepService } from '../../core/services/viacep.service';
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './cadastro-espaco.component.html',
   styleUrl: './cadastro-espaco.component.scss'
 })
-export class CadastroEspacoComponent {
+export class CadastroEspacoComponent implements AfterViewInit {
 
   token_jwt: string = 'asd';
   idFuncionario: number = 1;
@@ -39,10 +39,10 @@ export class CadastroEspacoComponent {
   constructor(
     private atomicoJwtService: AtomicoJwtService,
     private viacepService: ViacepService
-  ) {
-   }
+  ) { }
 
-  ngOnInit() {
+  // Esta função é chamada após a inicialização da visualização do componente.
+  ngAfterViewInit() {
     this.listarEspacos();
   }
 
