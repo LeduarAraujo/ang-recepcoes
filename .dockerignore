@@ -1,0 +1,4 @@
+# filepath: d:\zMarshalls\ws_lais\ang-recepcoes\.dockerignore
+node_modules
+dist
+.env

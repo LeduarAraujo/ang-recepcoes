@@ -1,0 +1,64 @@
+<div id="header">
+  <h1>Consulta da Agenda dos Espaços</h1>
+</div>
+
+<div id="selecao-espaco" class="selecao-espaco-container">
+  <label for="espaco-select" class="selecao-espaco-label">Selecione um espaço:</label>
+  <select id="espaco-select" [(ngModel)]="idEspacoSelecionado" (change)="updateCalendar()" title="Espaços" class="selecao-espaco-select">
+    <option [value]="0" selected>Selecione um espaço</option>
+    <option *ngFor="let espaco of listaEspacos" [value]="espaco.cdEspaco">
+      {{ espaco.nmEspaco }}
+    </option>
+  </select>
+</div>
+
+<!-- Exibe o calendário apenas se idEspacoSelecionado for diferente de 0 -->
+<div class="calendar" *ngIf="idEspacoSelecionado != null && idEspacoSelecionado != 0">
+  <div class="calendar-header">
+    <button (click)="prevMonth()" class="btn btn-primary">Anterior</button>
+    <div class="calendar-selectors">
+      <select [(ngModel)]="currentMonth" (change)="updateCalendar()" title="Select Month">
+        <option *ngFor="let month of months; let i = index" [value]="i">
+          {{ month }}
+        </option>
+      </select>
+      <select [(ngModel)]="currentYear" (change)="updateCalendar()" title="Select Year">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    <button (click)="nextMonth()" class="btn btn-primary">Próximo</button>
+  </div>
+
+  <div class="days-of-week">
+    <div class="weekday" *ngFor="let day of weekdays">{{ day }}</div>
+  </div>
+
+  <div class="calendar-days">
+    <div class="day-cell" *ngFor="let day of daysInMonth">
+      <div *ngIf="day.date; else emptyDay">
+        <div class="date">{{ day.date }}</div>
+        <div class="reservation-input">
+          <input type="text" [(ngModel)]="day.reservation" placeholder="Reservar" />
+        </div>
+      </div>
+      <ng-template #emptyDay>
+        <div class="empty-date"></div>
+      </ng-template>
+    </div>
+  </div>
+  <!-- Botões e caixas de texto -->
+  <div class="export-buttons" style="text-align: center; margin-top: 20px;">
+    <button (click)="exportRemainingDates()" class="btn btn-secondary">Exportar Datas Restantes</button>
+    <button (click)="exportWeeklyAgenda()" class="btn btn-secondary">Exportar Agenda da Semana</button>
+  </div>
+
+  <div *ngIf="remainingDatesText" class="export-output" style="margin-top: 10px; text-align: center;">
+    <textarea readonly rows="3" cols="50" title="Remaining Dates Output" placeholder="Remaining dates will appear here">{{ remainingDatesText }}</textarea>
+  </div>
+
+  <div *ngIf="weeklyAgendaText" class="export-output" style="margin-top: 10px; text-align: center;">
+    <textarea readonly rows="5" cols="50" title="Weekly Agenda Output" placeholder="Weekly agenda will appear here">{{ weeklyAgendaText }}</textarea>
+  </div>
+</div>
+
+

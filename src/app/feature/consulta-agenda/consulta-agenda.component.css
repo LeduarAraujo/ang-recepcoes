@@ -1,0 +1,133 @@
+/* Centralizar os botões */
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 20px;
+}
+
+/* Estilo dos botões */
+.export-buttons .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Centralizar as caixas de texto */
+.export-output {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* Estilo das caixas de texto */
+.export-output textarea {
+  width: 80%; /* Ajuste a largura conforme necessário */
+  max-width: 600px;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* Impede o redimensionamento */
+  background-color: #f9f9f9;
+}
+
+/* Estilos do calendário */
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  border: 2px solid #ccc; /* Adiciona uma borda ao redor do calendário */
+  border-radius: 8px; /* Bordas arredondadas para um design mais moderno */
+  padding: 15px; /* Espaçamento interno */
+  background-color: #fff; /* Fundo branco para contraste */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.calendar-selectors select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.days-of-week {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.day-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.day-cell .date {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.day-cell .reservation-input input {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.empty-date {
+  height: 50px;
+}
+
+.selecao-espaco-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.selecao-espaco-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.selecao-espaco-select {
+  width: 300px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.selecao-espaco-select:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #fff;
+}

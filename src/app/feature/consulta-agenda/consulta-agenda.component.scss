@@ -1,0 +1,124 @@
+.calendar {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn {
+  margin: 5px;
+}
+
+/* Styles for the Calendar Component */
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.calendar-header button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.calendar-header button:hover {
+  background-color: #0056b3;
+}
+
+.calendar-selectors {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.calendar-selectors select {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.days-of-week {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.weekday {
+  width: 14.28%; /* 100% / 7 dias */
+}
+
+.day {
+  width: 14.28%; /* 100% / 7 days */
+  text-align: center;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.day-cell {
+  width: 14.28%; /* 100% / 7 dias */
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.day-cell:hover {
+  background-color: #f8f9fa;
+}
+
+.date {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.reservation-input {
+  margin-top: 10px;
+  width: 90%;
+}
+
+.reservation-input input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.empty-date {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}

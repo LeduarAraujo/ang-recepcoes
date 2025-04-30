@@ -13,7 +13,7 @@ export class AtomicoJwtService {
    * - Sesão dos Espaços
    */
   incluirEspaco(token_jwt: string, idFuncionario: number, espaco: Espaco, logoEspaco: Blob) {
-    const url = 'https://atom-recepcoes-43268d48140c.herokuapp.com/api/v1/incluirespaco';
+    const url = 'http://localhost:8080/api/v1/incluirespaco';
     let headers = new HttpHeaders({
       'accept': 'application/json',
       token_jwt: token_jwt,
@@ -30,7 +30,7 @@ export class AtomicoJwtService {
   }
 
   listarEspacos(token_jwt: string, idFuncionario: number) {
-    const url = 'https://atom-recepcoes-43268d48140c.herokuapp.com/api/v1/listarespacos';
+    const url = 'http://localhost:8080/api/v1/listarespacos';
     let headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       token_jwt: token_jwt,
@@ -43,4 +43,18 @@ export class AtomicoJwtService {
   /*
    * - Sesão dos Usuarios
    */
+
+  getAgendaEspaco(token_jwt: string, idEspaco: number, year: number, month: number) {
+    const url = 'http://localhost:8080/api/v1/agendaespaco';
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      token_jwt: token_jwt,
+      idEspaco: idEspaco.toString(),
+      year: year.toString(),
+      month: month.toString(),
+    });
+
+    return this.http.get(url, { headers: headers });
+  }
+
 }
